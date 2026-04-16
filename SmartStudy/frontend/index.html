@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Planner</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">📚 Smart Study Planner</h1>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <h2>Study Smarter, Not Harder</h2>
+            <p>AI-powered study planner that learns your focus patterns</p>
+            <a href="login.html" class="btn btn-primary" id="heroBtn">Get Started</a>
+        </div>
+    </main>
+
+    <script src="js/app-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // If logged in, update nav and hero button
+        if (isLoggedIn()) {
+            const user = getUser();
+            document.getElementById('navLinks').innerHTML = `
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="log-session.html">Log Session</a></li>
+                <li><a href="predictions.html">Predictions</a></li>
+                <li><span style="color: #667eea; font-weight: 600;">👤 ${user.name}</span></li>
+                <li><a href="#" onclick="logout(); return false;" style="color: #e74c3c;">Logout</a></li>
+            `;
+            document.getElementById('heroBtn').href = 'dashboard.html';
+            document.getElementById('heroBtn').textContent = 'Go to Dashboard';
+        }
+    </script>
+</body>
+</html>

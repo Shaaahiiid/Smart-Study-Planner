@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Study Planner</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">📚 Smart Study Planner</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="log-session.html">Log Session</a></li>
+            <li><a href="predictions.html">Predictions</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container">
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-content">
+                <h3 id="totalSessions">0</h3>
+                <p>Total Sessions</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">⏱️</div>
+            <div class="stat-content">
+                <h3 id="totalHours">0</h3>
+                <p>Total Hours</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-content">
+                <h3 id="avgFocus">0</h3>
+                <p>Average Focus</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📅</div>
+            <div class="stat-content">
+                <h3 id="thisWeek">0</h3>
+                <p>This Week</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="dashboard-grid">
+        <!-- Focus by Subject -->
+        <div class="card">
+            <h2>📚 Focus by Subject</h2>
+            <div id="subjectChart" class="chart-container">
+                <div class="loading">Loading data...</div>
+            </div>
+        </div>
+
+        <!-- Study Time Distribution -->
+        <div class="card">
+            <h2>⏰ Study Time Distribution</h2>
+            <div id="timeChart" class="chart-container">
+                <div class="loading">Loading data...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Sessions -->
+    <div class="card">
+        <div class="card-header">
+            <h2>📝 Recent Sessions</h2>
+            <button class="btn btn-secondary" onclick="refreshDashboard()">🔄 Refresh</button>
+        </div>
+        <div id="recentSessions" class="sessions-table">
+            <div class="loading">Loading sessions...</div>
+        </div>
+    </div>
+
+    <!-- Weekly Progress -->
+    <div class="card">
+        <h2>📈 Weekly Progress</h2>
+        <div id="weeklyProgress" class="progress-container">
+            <div class="loading">Loading progress...</div>
+        </div>
+    </div>
+</main>
+
+<!-- JavaScript -->
+<script src="js/app-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

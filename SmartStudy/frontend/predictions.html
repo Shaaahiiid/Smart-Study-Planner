@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Predictions - Smart Study Planner</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">📚 Smart Study Planner</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="log-session.html">Log Session</a></li>
+            <li><a href="predictions.html" class="active">Predictions</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container">
+    <!-- ML Service Status -->
+    <div class="card status-card" id="mlStatus">
+        <div class="status-indicator">
+            <div class="status-dot" id="statusDot"></div>
+            <span id="statusText">Checking ML service...</span>
+        </div>
+    </div>
+
+    <!-- Prediction Form -->
+    <div class="card">
+        <h2>🤖 Get Study Time Predictions</h2>
+        <p class="card-description">
+            Select a subject to get AI-powered recommendations for the best times to study based on your focus patterns.
+        </p>
+
+        <form id="predictionForm">
+            <!-- Subject Selection -->
+            <div class="form-group">
+                <label for="subject">Select Subject:</label>
+                <select id="subject" name="subject" required>
+                    <option value="">-- Choose Subject --</option>
+                </select>
+            </div>
+
+            <!-- Number of Recommendations -->
+            <div class="form-group">
+                <label for="topN">Number of Recommendations:</label>
+                <select id="topN" name="topN">
+                    <option value="3">Top 3</option>
+                    <option value="5" selected>Top 5</option>
+                    <option value="10">Top 10</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-large">
+                🔮 Get Predictions
+            </button>
+        </form>
+
+        <!-- Message Area -->
+        <div id="message" class="message hidden"></div>
+    </div>
+
+    <!-- Predictions Results -->
+    <div class="card" id="resultsCard" style="display: none;">
+        <h2>📊 Best Study Times for <span id="resultSubject"></span></h2>
+        <div id="predictions" class="predictions-container">
+            <!-- Predictions will be inserted here -->
+        </div>
+
+        <!-- Train Model Button -->
+        <div class="train-section">
+            <p class="help-text">
+                💡 Tip: The more study sessions you log, the better the predictions become!
+            </p>
+            <button class="btn btn-secondary" onclick="trainModel()">
+                🔄 Retrain Model with Latest Data
+            </button>
+        </div>
+    </div>
+
+    <!-- Info Card -->
+    <div class="card info-card">
+        <h3>ℹ️ How Predictions Work</h3>
+        <div class="info-content">
+            <div class="info-item">
+                <strong>📊 Data Collection:</strong>
+                <p>The system analyzes your past study sessions to identify patterns in your focus levels across different times and days.</p>
+            </div>
+            <div class="info-item">
+                <strong>🤖 Machine Learning:</strong>
+                <p>Using Linear Regression, the AI learns when you focus best for each subject based on hour of day, day of week, and historical performance.</p>
+            </div>
+            <div class="info-item">
+                <strong>🎯 Personalized Results:</strong>
+                <p>Recommendations are tailored to YOUR unique focus patterns, not generic advice. Everyone's optimal study times are different!</p>
+            </div>
+            <div class="info-item">
+                <strong>📈 Minimum Data:</strong>
+                <p>You need at least 30 logged study sessions for predictions to work. More data = better accuracy!</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- JavaScript -->
+<script src="js/app-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script src="js/predictions.js"></script>
+</body>
+</html>
